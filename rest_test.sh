@@ -1,0 +1,1 @@
+hey -c 40 -n 4000 http://{ip}:8000/payload

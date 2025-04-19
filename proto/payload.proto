@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package payload;
+
+service PayloadService {
+    rpc GetLargePayload(Empty) returns (PayloadResponse);
+}
+
+message Empty {
+    int64 size_in_kb = 1;
+}
+
+message PayloadResponse {
+    bytes data = 1;
+}

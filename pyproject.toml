@@ -1,0 +1,14 @@
+[project]
+name = "grpc-rest-benchmark"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "grpcio>=1.71.0",
+    "grpcio-tools>=1.71.0",
+    "locust>=2.34.1",
+    "protobuf>=5.29.4",
+    "starlette>=0.46.1",
+    "uvicorn[standard]>=0.34.0",
+]
