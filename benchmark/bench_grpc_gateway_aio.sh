@@ -82,6 +82,7 @@ for (( i=0; i<num_tests; i++ )); do
     # 성공 시, 결과 파일에 테스트 정보 추가 기록
     echo "" >> "$RESULTS_FILE"
     echo "--- Benchmark Parameters ---" >> "$RESULTS_FILE"
+    echo "gRPC gateway aio API benchmark" >> "$RESULTS_FILE"
     echo "Target URL: $TARGET_URL" >> "$RESULTS_FILE"
     echo "HTTP Method: $HTTP_METHOD" >> "$RESULTS_FILE"
     echo "Concurrency (Client): $c" >> "$RESULTS_FILE"
@@ -94,6 +95,6 @@ for (( i=0; i<num_tests; i++ )); do
 done
 
 echo "=================================================="
-echo "All REST API benchmark runs completed."
+echo "All gRPC gateway aio API benchmark runs completed."
 echo "Results saved in: $RESULTS_DIR"
 echo "=================================================="
