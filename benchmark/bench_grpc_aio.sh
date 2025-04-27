@@ -60,7 +60,7 @@ for (( i=0; i<num_tests; i++ )); do
 
   # 결과 파일 이름 생성 (타임스탬프 포함하여 중복 방지)
   TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-  RESULTS_FILE="${RESULTS_DIR}/grpc_${TIMESTAMP}_sz${SIZE_KB}_c${c}_n${n}.txt"
+  RESULTS_FILE="${RESULTS_DIR}/grpc_aio_${TIMESTAMP}_sz${SIZE_KB}_c${c}_n${n}.txt"
 
   echo "  -> Saving results to: $RESULTS_FILE"
 
@@ -68,6 +68,7 @@ for (( i=0; i<num_tests; i++ )); do
   # --format summary : 최종 요약 결과만 출력 (원하는 포맷으로 변경 가능)
   ghz --insecure \
       --proto "$PROTO_PATH" \
+      --import-paths="./proto" \
       --call payload.PayloadService/GetLargePayload \
       --data "$JSON_DATA" \
       --format summary \

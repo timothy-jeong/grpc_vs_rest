@@ -63,7 +63,7 @@ for (( i=0; i<num_tests; i++ )); do
 
   # 결과 파일 이름 생성
   TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-  RESULTS_FILE="${RESULTS_DIR}/rest_sz${SIZE_KB}_c${c}_n${n}_${TIMESTAMP}.txt"
+  RESULTS_FILE="${RESULTS_DIR}/rest_${TIMESTAMP}_sz${SIZE_KB}_c${c}_n${n}.txt"
 
   echo "  -> Targeting URL: $TARGET_URL"
   echo "  -> Saving results to: $RESULTS_FILE"

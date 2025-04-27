@@ -67,6 +67,7 @@ for (( i=0; i<num_tests; i++ )); do
   # ghz 실행 및 결과 파일 저장
   # --format summary : 최종 요약 결과만 출력 (원하는 포맷으로 변경 가능)
   ghz --insecure \
+      --import-paths="./proto" \
       --proto "$PROTO_PATH" \
       --call payload.PayloadService/GetLargePayload \
       --data "$JSON_DATA" \
