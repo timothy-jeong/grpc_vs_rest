@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import app.pb.payload_pb2 as payload__pb2
+from app.pb.proto.payload import payload_pb2 as proto_dot_payload_dot_payload__pb2
 
 GRPC_GENERATED_VERSION = '1.71.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in payload_pb2_grpc.py depends on'
+        + f' but the generated code in proto/payload/payload_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,8 +36,8 @@ class PayloadServiceStub(object):
         """
         self.GetLargePayload = channel.unary_unary(
                 '/payload.PayloadService/GetLargePayload',
-                request_serializer=payload__pb2.Empty.SerializeToString,
-                response_deserializer=payload__pb2.PayloadResponse.FromString,
+                request_serializer=proto_dot_payload_dot_payload__pb2.PayloadRequest.SerializeToString,
+                response_deserializer=proto_dot_payload_dot_payload__pb2.PayloadResponse.FromString,
                 _registered_method=True)
 
 
@@ -55,8 +55,8 @@ def add_PayloadServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetLargePayload': grpc.unary_unary_rpc_method_handler(
                     servicer.GetLargePayload,
-                    request_deserializer=payload__pb2.Empty.FromString,
-                    response_serializer=payload__pb2.PayloadResponse.SerializeToString,
+                    request_deserializer=proto_dot_payload_dot_payload__pb2.PayloadRequest.FromString,
+                    response_serializer=proto_dot_payload_dot_payload__pb2.PayloadResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -84,8 +84,8 @@ class PayloadService(object):
             request,
             target,
             '/payload.PayloadService/GetLargePayload',
-            payload__pb2.Empty.SerializeToString,
-            payload__pb2.PayloadResponse.FromString,
+            proto_dot_payload_dot_payload__pb2.PayloadRequest.SerializeToString,
+            proto_dot_payload_dot_payload__pb2.PayloadResponse.FromString,
             options,
             channel_credentials,
             insecure,
