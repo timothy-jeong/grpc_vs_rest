@@ -1,6 +1,6 @@
 import grpc
 from concurrent import futures
-from app.pb import payload_pb2, payload_pb2_grpc
+from app.pb.proto.payload import payload_pb2, payload_pb2_grpc
 
 class PayloadServiceImpl(payload_pb2_grpc.PayloadServiceServicer):
     def GetLargePayload(self, request, context):

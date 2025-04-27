@@ -22,6 +22,15 @@ wheels = [
 ]
 
 [[package]]
+name = "appier"
+version = "1.34.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9c/24/19694e37deef8a99048bb99a2f564ae3887db05e651647b4c08016068605/appier-1.34.6.tar.gz", hash = "sha256:2ae4e92d2bb415d3c5b2ffc35ac663d2a86a3f710373516f9cd0b19eb3b31d7d", size = 232534 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/d3/ad88b5b837891b7a2ced52f173b0902973e49dae57b115c9f400a8be0f98/appier-1.34.6-py2.py3-none-any.whl", hash = "sha256:b0cd3d403b2dd52004dec38d3f3c931e423da421118510398b6be43851813f34", size = 300948 },
+]
+
+[[package]]
 name = "blinker"
 version = "1.9.0"
 source = { registry = "https://pypi.org/simple" }
@@ -288,6 +297,30 @@ wheels = [
 ]
 
 [[package]]
+name = "google-api"
+version = "0.1.12"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "appier" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/85/2d/a6064ce3da7b8aede497559f445707a9cc53c8f7858d6237b6033db0782c/google_api-0.1.12.tar.gz", hash = "sha256:5611c87cdfc6b72927a5e2ea9299ddd6f3a206e29a342b86d3ff3ecc351c30a3", size = 3730 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4d/99/d3237a3286f463158cad1deea9bda706cc401e67302e12c17507edba940e/google_api-0.1.12-py2.py3-none-any.whl", hash = "sha256:618f9f2076482a128c408867b5398b291938fe8e653ed7f8ed58fce5042f0c75", size = 7978 },
+]
+
+[[package]]
+name = "googleapis-common-protos"
+version = "1.70.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "protobuf" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/39/24/33db22342cf4a2ea27c9955e6713140fedd51e8b141b5ce5260897020f1a/googleapis_common_protos-1.70.0.tar.gz", hash = "sha256:0e1b44e0ea153e6594f9f394fef15193a68aaaea2d843f83e2742717ca753257", size = 145903 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/86/f1/62a193f0227cf15a920390abe675f386dec35f7ae3ffe6da582d3ade42c7/googleapis_common_protos-1.70.0-py3-none-any.whl", hash = "sha256:b8bfcca8c25a2bb253e0e0b0adaf8c00773e5e6af6fd92397576680b807e0fd8", size = 294530 },
+]
+
+[[package]]
 name = "greenlet"
 version = "3.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -325,6 +358,8 @@ name = "grpc-rest-benchmark"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "google-api" },
+    { name = "googleapis-common-protos" },
     { name = "grpcio" },
     { name = "grpcio-tools" },
     { name = "locust" },
@@ -335,6 +370,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "google-api", specifier = ">=0.1.12" },
+    { name = "googleapis-common-protos", specifier = ">=1.70.0" },
     { name = "grpcio", specifier = ">=1.71.0" },
     { name = "grpcio-tools", specifier = ">=1.71.0" },
     { name = "locust", specifier = ">=2.34.1" },

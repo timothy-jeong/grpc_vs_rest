@@ -4,7 +4,7 @@
 DEFAULT_SIZE_KB="14"
 DEFAULT_IP="0.0.0.0" # 로컬 테스트 기본값, EC2 IP 등으로 변경 필요 시 파라미터 사용
 DEFAULT_PORT="50051"
-DEFAULT_PROTO_PATH="./proto/payload.proto" # proto 파일 상대 경로 (스크립트 실행 위치 기준)
+DEFAULT_PROTO_PATH="./proto/payload/payload.proto" # proto 파일 상대 경로 (스크립트 실행 위치 기준)
 DEFAULT_RESULTS_DIR="benchmark/results/grpc" # 결과 저장 디렉토리
 
 # --- 테스트할 파라미터 목록 (수정 가능) ---

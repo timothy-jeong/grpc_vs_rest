@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = "github.com/timothy-jeong/grpc_vs_rest/payload";
+
+package payload;
+
+import "google/api/annotations.proto";
+
+service PayloadService {
+    rpc GetLargePayload(PayloadRequest) returns (PayloadResponse) {
+        option (google.api.http) = {
+            get: "/payload",
+        };
+    }
+}
+
+message PayloadRequest {
+    int64 size_in_kb = 1;
+}
+
+message PayloadResponse {
+    bytes data = 1;
+}
